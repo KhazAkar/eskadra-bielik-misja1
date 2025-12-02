@@ -13,5 +13,7 @@ ENV LLAMA_ARG_HF_REPO=$BIELIK_MODEL_NAME
 # Copy template
 COPY template.jinja /models/template.jinja
 
+EXPOSE 8080
+
 # Start llama.cpp
 ENTRYPOINT ["/app/llama-server"]
