@@ -10,8 +10,10 @@ ENV LLAMA_ARG_CHAT_TEMPLATE=/models/template.jinja
 ENV BIELIK_MODEL_NAME=speakleash/Bielik-11B-v2.6-Instruct-GGUF:q4_k_m
 ENV LLAMA_ARG_HF_REPO=$BIELIK_MODEL_NAME
 
+ # Use only one slot
+
 # Copy template
-COPY template.jinja /models/template.jinja
+COPY template.jinja /template.jinja
 
 EXPOSE 8080
 
