@@ -8,7 +8,7 @@ from google.adk.models.lite_llm import LiteLlm
 from google.adk.tools import FunctionTool
 from pydantic import BaseModel
 
-BIELIK_MODEL_NAME = os.getenv("BIELIK_AGENTIC_MODEL_NAME", "Bielik-11B-v2.6")
+BIELIK_MODEL_NAME = os.getenv("BIELIK_MODEL_NAME", "Bielik-11B-v2.6")
 
 
 class WeatherOutput(BaseModel):
