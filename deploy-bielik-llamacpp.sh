@@ -5,11 +5,10 @@ source reload-env.sh
 
 # Deploy Bielik service to Cloud Run
 gcloud run deploy "$BIELIK_SERVICE_NAME" \
-    --source ollama-bielik/ \
+    --source llamacpp-bielik/ \
     --region "$GOOGLE_CLOUD_LOCATION" \
     --concurrency 7 \
     --cpu 8 \
-    --set-env-vars OLLAMA_NUM_PARALLEL=4 \
     --gpu 1 \
     --gpu-type nvidia-l4 \
     --max-instances 1 \
@@ -17,5 +16,5 @@ gcloud run deploy "$BIELIK_SERVICE_NAME" \
     --allow-unauthenticated \
     --no-cpu-throttling \
     --no-gpu-zonal-redundancy \
-    --timeout 600 \
+    --timeout 3600 \
     --labels dev-tutorial=codelab-dos-"$BIELIK_EVENT_ID"

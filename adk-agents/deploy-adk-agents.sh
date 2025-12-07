@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source environment variables
-source reload-env.sh
+source ../.env
 
 # Deploy to Cloud Run
 gcloud run deploy adk-agents \
@@ -10,5 +10,6 @@ gcloud run deploy adk-agents \
     --allow-unauthenticated \
     --set-env-vars GOOGLE_CLOUD_LOCATION="$GOOGLE_CLOUD_LOCATION" \
     --set-env-vars OLLAMA_API_BASE="$OLLAMA_API_BASE" \
+    --set-env-vars OPENAI_API_BASE="$OPENAI_API_BASE" \
     --set-env-vars GOOGLE_API_KEY="$GOOGLE_API_KEY" \
     --labels dev-tutorial=codelab-dos-"$BIELIK_EVENT_ID"

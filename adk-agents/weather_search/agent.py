@@ -5,10 +5,8 @@ import aiohttp
 # import requests
 from google.adk.agents import Agent
 from google.adk.models.lite_llm import LiteLlm
-from google.adk.tools import FunctionTool
+from google.adk.tools.function_tool import FunctionTool
 from pydantic import BaseModel
-
-BIELIK_MODEL_NAME = os.getenv("BIELIK_MODEL_NAME", "Bielik-11B-v2.6")
 
 
 class WeatherOutput(BaseModel):
@@ -17,11 +15,10 @@ class WeatherOutput(BaseModel):
     weather: str
 
 
-# llm_root = LiteLlm(model=f"ollama_chat/{BIELIK_CHAT_MODEL_NAME}")
 llm_agentic = LiteLlm(
-    model=f"openai/{BIELIK_MODEL_NAME}",
-    api_key="jan",
-    api_base="http://localhost:1337/v1",
+    model="openai/Bielik-11B-v2.6-Instruct",
+    api_base=os.getenv("OPENAI_API_BASE", "http://localhost:8000"),
+    api_key=os.getenv("OPENAI_API_KEY", "sk-no-key-required"),
 )
 
 
